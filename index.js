@@ -12,6 +12,7 @@ const test = async () => {
 
 const testito = async () => {
   const llll = await test();
+  console.log(llll);
   return llll;
 }
 
