@@ -1,15 +1,18 @@
-console.log("index.js");
+import axios from "axios";
 
-var myHeaders = new Headers();
-myHeaders.append("Authorization", "Basic anVhbjp4VExEIDdNQlggNTVHQSBlS2d5IHN3YmcgUHBQcw==");
+const todo = axios.create({
+  headers: {
+    "Authorization": "Basic anVhbjp4VExEIDdNQlggNTVHQSBlS2d5IHN3YmcgUHBQcw==",
+    "Content-Type": "application/json",
+  },
+})
 
-var requestOptions = {
-  method: "GET",
-  headers: myHeaders,
-  redirect: "follow",
+const cosito = async () => {
+  const data = await todo.get("https://wp.dev.genosha.com.ar/wp-json/wp/v2/skybox-images");
+  return data;
 };
 
-fetch("https://wp.dev.genosha.com.ar/wp-json/wp/v2/skybox-images", requestOptions)
-  .then((response) => response.text())
-  .then((result) => console.log(result))
-  .catch((error) => console.log("error", error));
+const otro = async () => {
+  return await cosito;
+}
+console.log(otro);
