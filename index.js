@@ -12,7 +12,9 @@ const test = async () => {
 
 const testito = async () => {
   const llll = await test();
-  console.log(llll);
+  if(llll.success)  {
+    document.querySelector('#app').innerHTML = `<img src="${llll.data.back}" />`;
+  }
   return llll;
 }
 
