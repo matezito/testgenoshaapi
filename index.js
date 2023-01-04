@@ -1,18 +1,18 @@
-import axios from "axios";
+const test = async () => {
+  const coso = await fetch("https://wp.dev.genosha.com.ar/wp-json/wp/v2/skybox-images", {
+    method: "GET",
+    headers: {
+      "Authorization": "Basic anVhbjp4VExEIDdNQlggNTVHQSBlS2d5IHN3YmcgUHBQcw==",
+      "Content-Type": "application/json",
+    }
+  });
 
-const todo = axios.create({
-  headers: {
-    "Authorization": "Basic anVhbjp4VExEIDdNQlggNTVHQSBlS2d5IHN3YmcgUHBQcw==",
-    "Content-Type": "application/json",
-  },
-})
-
-const cosito = async () => {
-  const data = await todo.get("https://wp.dev.genosha.com.ar/wp-json/wp/v2/skybox-images");
-  return data;
-};
-
-const otro = async () => {
-  return await cosito;
+  return await coso.json();
 }
-console.log(otro);
+
+const testito = async () => {
+  const llll = await test();
+  return llll;
+}
+
+testito();
